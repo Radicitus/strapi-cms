@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "links",
+  "info": {
+    "singularName": "link",
+    "pluralName": "links",
+    "displayName": "Link"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "path": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "target": {
+      "type": "enumeration",
+      "enum": [
+        "self",
+        "blank"
+      ],
+      "default": "self",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    }
+  }
+}

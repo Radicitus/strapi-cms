@@ -45,6 +45,13 @@
       "required": true,
       "unique": true,
       "min": 1
+    },
+    "start": {
+      "type": "date",
+      "required": true
+    },
+    "end": {
+      "type": "date"
     }
   }
 }

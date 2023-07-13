@@ -15,12 +15,12 @@
     "title": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "path": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "target": {
       "type": "enumeration",
@@ -33,7 +33,8 @@
     },
     "slug": {
       "type": "uid",
-      "targetField": "title"
+      "targetField": "title",
+      "required": true
     },
     "description": {
       "type": "string",

@@ -35,11 +35,6 @@
       "type": "uid",
       "targetField": "title",
       "required": true
-    },
-    "description": {
-      "type": "string",
-      "required": true,
-      "unique": true
     }
   }
 }

@@ -20,26 +20,25 @@
     "description": {
       "type": "richtext"
     },
-    "cover": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "links": {
+    "button": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::link.link"
+      "relation": "oneToOne",
+      "target": "api::button.button"
     },
     "slug": {
       "type": "uid",
       "targetField": "title",
       "required": true
+    },
+    "experiences": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::experience.experience"
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project"
     }
   }
 }

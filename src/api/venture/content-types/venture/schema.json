@@ -82,7 +82,9 @@
       "default": "project"
     },
     "company": {
-      "type": "string"
+      "type": "string",
+      "default": "Personal",
+      "required": true
     }
   }
 }

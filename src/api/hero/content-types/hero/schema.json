@@ -30,15 +30,22 @@
       "targetField": "title",
       "required": true
     },
-    "experiences": {
+    "ventures": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::experience.experience"
+      "target": "api::venture.venture"
     },
-    "projects": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::project.project"
+    "background_color": {
+      "type": "enumeration",
+      "enum": [
+        "bg-primary",
+        "bg-secondary",
+        "bg-base-100",
+        "bg-base-200",
+        "bg-base-300"
+      ],
+      "default": "bg-base-100",
+      "required": true
     }
   }
 }

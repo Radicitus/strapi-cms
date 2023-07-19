@@ -34,7 +34,7 @@
     "buttons": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::link.link"
+      "target": "api::button.button"
     },
     "slug": {
       "type": "uid",

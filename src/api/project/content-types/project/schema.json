@@ -23,7 +23,7 @@
     "media": {
       "type": "media",
       "multiple": true,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -38,6 +38,20 @@
       "type": "uid",
       "targetField": "title",
       "required": true
+    },
+    "rank": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "unique": true,
+      "min": 1
+    },
+    "start": {
+      "type": "date",
+      "required": true
+    },
+    "end": {
+      "type": "date"
     }
   }
 }

@@ -20,25 +20,31 @@
     "description": {
       "type": "richtext"
     },
-    "cover": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "links": {
+    "button": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::link.link"
+      "relation": "oneToOne",
+      "target": "api::button.button"
     },
     "slug": {
       "type": "uid",
       "targetField": "title",
+      "required": true
+    },
+    "ventures": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::venture.venture"
+    },
+    "background_color": {
+      "type": "enumeration",
+      "enum": [
+        "bg-primary",
+        "bg-secondary",
+        "bg-base-100",
+        "bg-base-200",
+        "bg-base-300"
+      ],
+      "default": "bg-base-100",
       "required": true
     }
   }

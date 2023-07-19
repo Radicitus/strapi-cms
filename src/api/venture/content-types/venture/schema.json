@@ -72,19 +72,20 @@
       "targetField": "title",
       "required": true
     },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "project",
-        "experience"
-      ],
-      "required": true,
-      "default": "project"
-    },
     "company": {
       "type": "string",
       "default": "Personal",
       "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "projects",
+        "experience",
+        "personal"
+      ],
+      "required": true,
+      "default": "projects"
     }
   }
 }

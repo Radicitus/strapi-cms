@@ -17,11 +17,6 @@
       "required": true,
       "unique": true
     },
-    "lead_hero": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::lead-hero.lead-hero"
-    },
     "slug": {
       "type": "uid",
       "targetField": "title"
@@ -38,11 +33,6 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::link.link"
-    },
-    "heroes": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::hero.hero"
     }
   }
 }

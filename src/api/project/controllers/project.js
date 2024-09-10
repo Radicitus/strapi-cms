@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * venture controller
+ * project controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::venture.venture');
+module.exports = createCoreController('api::project.project');

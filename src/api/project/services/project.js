@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * venture service
+ * project service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::venture.venture');
+module.exports = createCoreService('api::project.project');

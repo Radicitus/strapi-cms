@@ -30,7 +30,7 @@
     },
     "end": {
       "type": "date",
-      "required": true
+      "required": false
     },
     "title": {
       "type": "string",
@@ -40,11 +40,11 @@
       "type": "text",
       "required": true
     },
-    "description": {
-      "type": "text",
+    "contributions": {
+      "type": "blocks",
       "required": true
     },
-    "contributions": {
+    "content": {
       "type": "blocks",
       "required": true
     },

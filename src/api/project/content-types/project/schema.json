@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "ventures",
+  "collectionName": "projects",
   "info": {
-    "singularName": "venture",
-    "pluralName": "ventures",
-    "displayName": "Venture",
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Project",
     "description": ""
   },
   "options": {
@@ -14,8 +14,7 @@
   "attributes": {
     "title": {
       "type": "string",
-      "required": true,
-      "unique": true
+      "required": true
     },
     "description": {
       "type": "text",
@@ -26,10 +25,7 @@
       "multiple": false,
       "required": true,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ]
     },
     "media": {
@@ -44,15 +40,13 @@
       ]
     },
     "content": {
-      "type": "richtext",
+      "type": "blocks",
       "required": true
     },
     "rank": {
       "type": "integer",
-      "default": 1,
-      "min": 1,
-      "unique": false,
-      "required": true
+      "required": true,
+      "unique": true
     },
     "start": {
       "type": "date",
@@ -62,30 +56,10 @@
       "type": "date",
       "required": false
     },
-    "icon": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::icon.icon"
-    },
     "slug": {
       "type": "uid",
       "targetField": "title",
       "required": true
-    },
-    "company": {
-      "type": "string",
-      "default": "Personal",
-      "required": true
-    },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "projects",
-        "experience",
-        "personal"
-      ],
-      "required": true,
-      "default": "projects"
     }
   }
 }

@@ -803,11 +803,11 @@ export interface ApiExperienceExperience extends Schema.CollectionType {
     company: Attribute.String & Attribute.Required;
     logo: Attribute.Media<'images'> & Attribute.Required;
     start: Attribute.Date & Attribute.Required;
-    end: Attribute.Date & Attribute.Required;
+    end: Attribute.Date;
     title: Attribute.String & Attribute.Required;
     summary: Attribute.Text & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
     contributions: Attribute.Blocks & Attribute.Required;
+    content: Attribute.Blocks & Attribute.Required;
     slug: Attribute.UID<'api::experience.experience', 'company'> &
       Attribute.Required;
     createdAt: Attribute.DateTime;
@@ -944,94 +944,38 @@ export interface ApiNavNav extends Schema.SingleType {
   };
 }
 
-export interface ApiPagePage extends Schema.CollectionType {
-  collectionName: 'pages';
+export interface ApiProjectProject extends Schema.CollectionType {
+  collectionName: 'projects';
   info: {
-    singularName: 'page';
-    pluralName: 'pages';
-    displayName: 'Page';
+    singularName: 'project';
+    pluralName: 'projects';
+    displayName: 'Project';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String & Attribute.Required & Attribute.Unique;
-    slug: Attribute.UID<'api::page.page', 'title'>;
-    nav_order: Attribute.Integer &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetMinMax<
-        {
-          min: 1;
-          max: 6;
-        },
-        number
-      > &
-      Attribute.DefaultTo<1>;
-    link: Attribute.Relation<'api::page.page', 'oneToOne', 'api::link.link'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::page.page', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiVentureVenture extends Schema.CollectionType {
-  collectionName: 'ventures';
-  info: {
-    singularName: 'venture';
-    pluralName: 'ventures';
-    displayName: 'Venture';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required & Attribute.Unique;
+    title: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
-    cover: Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Attribute.Required;
+    cover: Attribute.Media<'images'> & Attribute.Required;
     media: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-    content: Attribute.RichText & Attribute.Required;
-    rank: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      > &
-      Attribute.DefaultTo<1>;
+    content: Attribute.Blocks & Attribute.Required;
+    rank: Attribute.Integer & Attribute.Required & Attribute.Unique;
     start: Attribute.Date & Attribute.Required;
     end: Attribute.Date;
-    icon: Attribute.Relation<
-      'api::venture.venture',
-      'oneToOne',
-      'api::icon.icon'
-    >;
-    slug: Attribute.UID<'api::venture.venture', 'title'> & Attribute.Required;
-    company: Attribute.String &
-      Attribute.Required &
-      Attribute.DefaultTo<'Personal'>;
-    type: Attribute.Enumeration<['projects', 'experience', 'personal']> &
-      Attribute.Required &
-      Attribute.DefaultTo<'projects'>;
+    slug: Attribute.UID<'api::project.project', 'title'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::venture.venture',
+      'api::project.project',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::venture.venture',
+      'api::project.project',
       'oneToOne',
       'admin::user'
     > &
@@ -1062,8 +1006,7 @@ declare module '@strapi/types' {
       'api::icon.icon': ApiIconIcon;
       'api::link.link': ApiLinkLink;
       'api::nav.nav': ApiNavNav;
-      'api::page.page': ApiPagePage;
-      'api::venture.venture': ApiVentureVenture;
+      'api::project.project': ApiProjectProject;
     }
   }
 }

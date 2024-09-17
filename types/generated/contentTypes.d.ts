@@ -971,6 +971,11 @@ export interface ApiProjectProject extends Schema.CollectionType {
     start: Attribute.Date & Attribute.Required;
     end: Attribute.Date;
     slug: Attribute.UID<'api::project.project', 'title'> & Attribute.Required;
+    technologies: Attribute.Relation<
+      'api::project.project',
+      'oneToMany',
+      'api::technology.technology'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

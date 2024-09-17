@@ -811,6 +811,11 @@ export interface ApiExperienceExperience extends Schema.CollectionType {
     slug: Attribute.UID<'api::experience.experience', 'company'> &
       Attribute.Required;
     media: Attribute.Media<'images', true>;
+    technologies: Attribute.Relation<
+      'api::experience.experience',
+      'oneToMany',
+      'api::technology.technology'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -984,6 +989,43 @@ export interface ApiProjectProject extends Schema.CollectionType {
   };
 }
 
+export interface ApiTechnologyTechnology extends Schema.CollectionType {
+  collectionName: 'technologies';
+  info: {
+    singularName: 'technology';
+    pluralName: 'technologies';
+    displayName: 'Technology';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required & Attribute.Unique;
+    icon: Attribute.Media<'images'>;
+    link: Attribute.Relation<
+      'api::technology.technology',
+      'oneToOne',
+      'api::link.link'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::technology.technology',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::technology.technology',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1008,6 +1050,7 @@ declare module '@strapi/types' {
       'api::link.link': ApiLinkLink;
       'api::nav.nav': ApiNavNav;
       'api::project.project': ApiProjectProject;
+      'api::technology.technology': ApiTechnologyTechnology;
     }
   }
 }

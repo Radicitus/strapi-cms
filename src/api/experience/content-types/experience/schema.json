@@ -52,6 +52,13 @@
       "type": "uid",
       "targetField": "company",
       "required": true
+    },
+    "media": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

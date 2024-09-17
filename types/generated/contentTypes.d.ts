@@ -810,6 +810,7 @@ export interface ApiExperienceExperience extends Schema.CollectionType {
     content: Attribute.Blocks & Attribute.Required;
     slug: Attribute.UID<'api::experience.experience', 'company'> &
       Attribute.Required;
+    media: Attribute.Media<'images', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

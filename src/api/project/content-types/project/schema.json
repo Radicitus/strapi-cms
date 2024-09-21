@@ -17,8 +17,9 @@
       "required": true
     },
     "description": {
-      "type": "text",
-      "required": true
+      "type": "string",
+      "required": true,
+      "maxLength": 150
     },
     "cover": {
       "type": "media",

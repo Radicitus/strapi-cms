@@ -963,7 +963,11 @@ export interface ApiProjectProject extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
+    description: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 150;
+      }>;
     cover: Attribute.Media<'images'> & Attribute.Required;
     media: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     content: Attribute.Blocks & Attribute.Required;

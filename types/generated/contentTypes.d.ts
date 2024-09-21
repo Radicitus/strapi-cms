@@ -990,6 +990,12 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'oneToMany',
       'api::icon.icon'
     >;
+    subtitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 5;
+      }> &
+      Attribute.DefaultTo<'Made by Cam'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

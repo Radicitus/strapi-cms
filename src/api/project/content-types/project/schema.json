@@ -71,6 +71,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::icon.icon"
+    },
+    "subtitle": {
+      "type": "string",
+      "required": true,
+      "default": "Made by Cam",
+      "minLength": 5
     }
   }
 }

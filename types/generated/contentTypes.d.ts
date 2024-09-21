@@ -816,6 +816,11 @@ export interface ApiExperienceExperience extends Schema.CollectionType {
       'oneToMany',
       'api::technology.technology'
     >;
+    icons: Attribute.Relation<
+      'api::experience.experience',
+      'oneToMany',
+      'api::icon.icon'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -886,7 +891,7 @@ export interface ApiIconIcon extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String & Attribute.Required & Attribute.Unique;
-    type: Attribute.Enumeration<['github', 'linkedin', 'email']> &
+    type: Attribute.Enumeration<['github', 'linkedin', 'email', 'external']> &
       Attribute.Required;
     link: Attribute.Relation<'api::icon.icon', 'oneToOne', 'api::link.link'>;
     slug: Attribute.UID<'api::icon.icon', 'title'> & Attribute.Required;
@@ -979,6 +984,11 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'api::project.project',
       'oneToMany',
       'api::technology.technology'
+    >;
+    icons: Attribute.Relation<
+      'api::project.project',
+      'oneToMany',
+      'api::icon.icon'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

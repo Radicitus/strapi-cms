@@ -22,7 +22,8 @@
       "enum": [
         "github",
         "linkedin",
-        "email"
+        "email",
+        "external"
       ],
       "required": true
     },

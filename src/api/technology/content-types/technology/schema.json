@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "icons",
+  "collectionName": "technologies",
   "info": {
-    "singularName": "icon",
-    "pluralName": "icons",
-    "displayName": "Icon",
+    "singularName": "technology",
+    "pluralName": "technologies",
+    "displayName": "Technology",
     "description": ""
   },
   "options": {
@@ -17,25 +17,18 @@
       "required": true,
       "unique": true
     },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "github",
-        "linkedin",
-        "email",
-        "external"
-      ],
-      "required": true
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "link": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::link.link"
-    },
-    "slug": {
-      "type": "uid",
-      "targetField": "title",
-      "required": true
     }
   }
 }

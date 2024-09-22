@@ -1,0 +1,75 @@
+{
+  "kind": "collectionType",
+  "collectionName": "experiences",
+  "info": {
+    "singularName": "experience",
+    "pluralName": "experiences",
+    "displayName": "Experience",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "company": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "start": {
+      "type": "date",
+      "required": true
+    },
+    "end": {
+      "type": "date",
+      "required": false
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "summary": {
+      "type": "text",
+      "required": true
+    },
+    "contributions": {
+      "type": "blocks",
+      "required": true
+    },
+    "content": {
+      "type": "blocks",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "company",
+      "required": true
+    },
+    "media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "technologies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::technology.technology"
+    },
+    "icons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::icon.icon"
+    }
+  }
+}

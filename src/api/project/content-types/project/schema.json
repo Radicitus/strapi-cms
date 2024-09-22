@@ -1,0 +1,82 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Project",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true,
+      "maxLength": 150
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "content": {
+      "type": "blocks",
+      "required": true
+    },
+    "rank": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "start": {
+      "type": "date",
+      "required": true
+    },
+    "end": {
+      "type": "date",
+      "required": false
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "technologies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::technology.technology"
+    },
+    "icons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::icon.icon"
+    },
+    "subtitle": {
+      "type": "string",
+      "required": true,
+      "default": "Made by Cam",
+      "minLength": 5
+    }
+  }
+}
